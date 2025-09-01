@@ -1474,16 +1474,34 @@ textarea.form-control {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--portfolio-accent), var(--portfolio-electric));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--font-size-3xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--portfolio-dark);
+  position: relative;
   box-shadow: var(--shadow-electric);
   animation: pulse-electric 3s ease-in-out infinite;
-  overflow: hidden; /* Add this to ensure image stays circular */
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--portfolio-accent), var(--portfolio-electric));
+}
+
+.avatar-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.avatar-ring {
+  position: absolute;
+  inset: -20px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background: linear-gradient(var(--portfolio-dark), var(--portfolio-dark)) padding-box,
+              linear-gradient(45deg, var(--portfolio-accent), var(--portfolio-electric)) border-box;
+  animation: rotate 15s linear infinite;
 }
 
 
