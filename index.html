@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rithik Verma - Electrical & Computer Engineering Student | Full-Stack Developer</title>
+    <meta name="description" content="Portfolio of Rithik Verma - Electrical & Computer Engineering student at TIET specializing in Full-Stack Development, AR/IoT, and Game Development.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+        <img src="logo.png" alt="Rithik Verma Logo" style="width:64px;height:64px;">
+        </div>
+            <div class="loading-text">Loading Portfolio...</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <img src="logo.png" alt="Rithik Verma" class="logo-image">
+            </a>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#certifications" class="nav-link">Certifications</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <a href="https://drive.google.com/file/d/1Qdv5OM9565vf_ePO6blATI9gbWCLy4Zv/view?usp=sharing" class="btn btn--outline btn--sm" target="_blank">Download Resume</a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-particles"></div>
+            <div class="hero-gradient"></div>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="hero-greeting">Hello, I'm</span>
+                        <span class="hero-name" id="hero-name">Rithik Verma</span>
+                        <span class="hero-subtitle">Electrical & Computer Engineering Student</span>
+                        <span class="hero-tagline-secondary">Full-Stack Developer | AR/IoT Enthusiast</span>
+                    </h1>
+                    <p class="hero-tagline" id="hero-tagline">Building innovative solutions at the intersection of hardware and software</p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn--primary">View Projects</a>
+                        <a href="#contact" class="btn btn--outline">Get in Touch</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-avatar">
+                        <div class="avatar-container">
+                             <div class="avatar-image">
+                                 <img src="ritwik1.png" alt="Rithik Verma" class="avatar-photo">
+                             </div>
+                            <div class="avatar-ring"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-arrow"></div>
+                <span>Scroll to explore</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Get to know more about my background and passion</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-bio">I'm an Electrical and Computer Engineering student at Thapar Institute with a passion for creating innovative technology solutions. My journey spans from electrical systems to full-stack web development, AR interfaces, and IoT applications. I believe in leveraging technology to solve real-world problems and create meaningful user experiences.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-label">Major Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">7+</div>
+                            <div class="stat-label">Certifications</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">4</div>
+                            <div class="stat-label">Tech Domains</div>
+                        </div>
+                    </div>
+                    <div class="about-location">
+                        <span class="location-icon">📍</span>
+                        <span>Available for opportunities</span>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="tech-orbit">
+                        <div class="orbit-center">
+                            <span class="center-icon">⚡</span>
+                        </div>
+                        <div class="orbit-ring ring-1">
+                            <div class="orbit-item" data-tech="Unity">🎮</div>
+                            <div class="orbit-item" data-tech="React">⚛️</div>
+                            <div class="orbit-item" data-tech="Arduino">🔧</div>
+                        </div>
+                        <div class="orbit-ring ring-2">
+                            <div class="orbit-item" data-tech="Python">🐍</div>
+                            <div class="orbit-item" data-tech="C#">💻</div>
+                            <div class="orbit-item" data-tech="IoT">📡</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Education</h2>
+                <p class="section-subtitle">My academic journey and achievements</p>
+            </div>
+            <div class="education-timeline">
+                <div class="education-item current">
+                    <div class="education-marker"></div>
+                    <div class="education-content">
+                        <div class="education-period">2023 - Present</div>
+                        <h3 class="education-degree">B.E Electrical and Computer Engineering</h3>
+                        <div class="education-institution">Thapar Institute of Engineering and Technology</div>
+                        <p class="education-description">Currently pursuing Bachelor's degree with focus on electrical systems, computer engineering, and modern technologies including embedded systems and IoT.</p>
+                        <div class="education-status">Ongoing</div>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="education-marker"></div>
+                    <div class="education-content">
+                        <div class="education-period">Completed June 2023</div>
+                        <h3 class="education-degree">Diploma in Electrical Engineering</h3>
+                        <div class="education-institution">Govt. Polytechnic Buxar</div>
+                        <p class="education-description">Completed diploma with strong foundation in electrical engineering principles and practical applications.</p>
+                        <div class="education-grade">CGPA: 7.75/10.0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Expertise</h2>
+                <p class="section-subtitle">Technologies and tools I work with</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category" data-category="programming">
+                    <div class="skill-header">
+                        <div class="skill-icon">💻</div>
+                        <h3 class="skill-title">Programming</h3>
+                    </div>
+                    <div class="skill-list">
+                        <span class="skill-tag">C/C++</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">XML</span>
+                    </div>
+                </div>
+                <div class="skill-category" data-category="tools">
+                    <div class="skill-header">
+                        <div class="skill-icon">🛠️</div>
+                        <h3 class="skill-title">Development Tools</h3>
+                    </div>
+                    <div class="skill-list">
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">Adobe Creative Suite</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Canva</span>
+                        <span class="skill-tag">Unity</span>
+                    </div>
+                </div>
+                <div class="skill-category" data-category="hardware">
+                    <div class="skill-header">
+                        <div class="skill-icon">🔌</div>
+                        <h3 class="skill-title">Hardware/IoT</h3>
+                    </div>
+                    <div class="skill-list">
+                        <span class="skill-tag">Arduino</span>
+                        <span class="skill-tag">Eagle CAD</span>
+                        <span class="skill-tag">Blynk</span>
+                        <span class="skill-tag">WiFi NINA</span>
+                        <span class="skill-tag">MKR1010</span>
+                        <span class="skill-tag">RFID Systems</span>
+                    </div>
+                </div>
+                <div class="skill-category" data-category="gamedev">
+                    <div class="skill-header">
+                        <div class="skill-icon">🎮</div>
+                        <h3 class="skill-title">Game Development</h3>
+                    </div>
+                    <div class="skill-list">
+                        <span class="skill-tag">Unity</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">2D/3D Graphics</span>
+                        <span class="skill-tag">Game Mechanics</span>
+                        <span class="skill-tag">UI Design</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Showcasing my work across AR, IoT, Web Development, and Game Development</p>
+            </div>
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ar">AR/Computer Vision</button>
+                <button class="filter-btn" data-filter="web">Full-Stack Web</button>
+                <button class="filter-btn" data-filter="game">Game Development</button>
+                <button class="filter-btn" data-filter="iot">IoT/Hardware</button>
+            </div>
+            <div class="projects-grid" id="projects-grid">
+                <!-- Projects will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experience</h2>
+                <p class="section-subtitle">My professional journey and achievements</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item" data-year="2024">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">Campus Ambassador</h3>
+                            <div class="timeline-meta">
+                                <span class="timeline-company">InternsElite</span>
+                                <span class="timeline-period">Sept 2024 – Dec 2024</span>
+                            </div>
+                        </div>
+                        <p class="timeline-description">Helping TIET students develop expertise in web applications and enhance problem-solving skills</p>
+                        <ul class="timeline-achievements">
+                            <li>Mentored fellow students in web development</li>
+                            <li>Organized technical workshops and sessions</li>
+                            <li>Promoted skill development programs</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2024">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">Industrial Training</h3>
+                            <div class="timeline-meta">
+                                <span class="timeline-company">InternsElite</span>
+                                <span class="timeline-period">Jan 2024 – Sept 2024</span>
+                            </div>
+                        </div>
+                        <p class="timeline-description">Developed expertise in building web applications, enhancing problem-solving skills, and gaining industry-ready experience</p>
+                        <ul class="timeline-achievements">
+                            <li>Completed comprehensive full-stack development training</li>
+                            <li>Built multiple real-world projects</li>
+                            <li>Gained industry-ready experience in modern web technologies</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2022">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">Volunteer</h3>
+                            <div class="timeline-meta">
+                                <span class="timeline-company">Conscious Planet</span>
+                                <span class="timeline-period">Oct 2022 – Jan 2023</span>
+                            </div>
+                        </div>
+                        <p class="timeline-description">Raised awareness about preserving soil health and environmental conservation</p>
+                        <ul class="timeline-achievements">
+                            <li>Organized awareness campaigns</li>
+                            <li>Educated community about soil health</li>
+                            <li>Contributed to environmental conservation efforts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Certifications</h2>
+                <p class="section-subtitle">Professional certifications and achievements</p>
+            </div>
+            <div class="certifications-grid">
+                <div class="cert-item">
+                    <div class="cert-icon">🎮</div>
+                    <h3 class="cert-title">ELC in Game Development and Animations</h3>
+                    <div class="cert-issuer">Educational Institution</div>
+                    <div class="cert-year">2023</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">🤖</div>
+                    <h3 class="cert-title">ELC in Robotic Arm Control</h3>
+                    <div class="cert-issuer">Educational Institution</div>
+                    <div class="cert-year">2024</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">⚡</div>
+                    <h3 class="cert-title">ELC in Power Amplifier</h3>
+                    <div class="cert-issuer">Educational Institution</div>
+                    <div class="cert-year">2024</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">💻</div>
+                    <h3 class="cert-title">IT Essentials: PC Hardware and Software</h3>
+                    <div class="cert-issuer">CISCO</div>
+                    <div class="cert-year">2020</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">🔒</div>
+                    <h3 class="cert-title">Cybersecurity Essentials</h3>
+                    <div class="cert-issuer">CISCO</div>
+                    <div class="cert-year">2025</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">🌐</div>
+                    <h3 class="cert-title">Full Stack Web Development</h3>
+                    <div class="cert-issuer">InternsElite</div>
+                    <div class="cert-year">2024</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-icon">🏭</div>
+                    <h3 class="cert-title">Industrial Training Certificate</h3>
+                    <div class="cert-issuer">InternsElite</div>
+                    <div class="cert-year">2024</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Let's discuss your next project or opportunity</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <a href="mailto:er.rock4rithik@gmail.com">er.rock4rithik@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Patiala, Panjab, India</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🚀</div>
+                        <div class="contact-details">
+                            <h3>Status</h3>
+                            <p>Open to new opportunities</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/rithik78" target="_blank" class="social-link" aria-label="GitHub">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/rithik-verma-74592226a/" target="_blank" class="social-link" aria-label="LinkedIn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="https://leetcode.com/u/rithik100/" target="_blank" class="social-link" aria-label="LeetCode">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.813 2.133 8.021-.069l9.047-9.142a1.378 1.378 0 0 0 0-1.959 1.431 1.431 0 0 0-2.004 0l-9.047 9.143a2.495 2.495 0 0 1-3.522.043L7.365 16.12l-.038-.038a2.953 2.953 0 0 1-.632-.897 2.918 2.918 0 0 1-.175-.511 2.718 2.718 0 0 1-.043-1.207c.061-.2.162-.38.3-.533l3.855-4.127L15.121.876A1.326 1.326 0 0 0 14.16.438 1.374 1.374 0 0 0 13.483 0Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" class="form-label">Subject</label>
+                        <input type="text" id="subject" name="subject" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" rows="6" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full-width">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2025 Rithik Verma. All rights reserved.</p>
+                    <p>Built with passion and modern web technologies.</p>
+                </div>
+                <div class="scroll-to-top" id="scroll-to-top">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="19" x2="12" y2="5"></line>
+                        <polyline points="5 12 12 5 19 12"></polyline>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
