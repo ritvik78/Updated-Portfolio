@@ -1,6 +1,6 @@
 # 🚀 Rithik Verma - Portfolio Website
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-Live-brightgreen)](https://rithikverma.github.io/portfolio)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Live-brightgreen)](https://ritvik78.github.io/Updated-Portfolio/)
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-blue)](https://github.com/rithikverma)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://linkedin.com/in/rithikverma)
 [![LeetCode](https://img.shields.io/badge/LeetCode-Profile-yellow)](https://leetcode.com/rithikverma)
