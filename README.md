@@ -1,9 +1,9 @@
 # 🚀 Rithik Verma - Portfolio Website
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-Live-brightgreen)](https://ritvik78.github.io/Updated-Portfolio/)
-[![GitHub](https://img.shields.io/badge/GitHub-Profile-blue)](https://github.com/rithikverma)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://linkedin.com/in/rithikverma)
-[![LeetCode](https://img.shields.io/badge/LeetCode-Profile-yellow)](https://leetcode.com/rithikverma)
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-blue)](https://github.com/ritvik78)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://www.linkedin.com/in/rithik-verma-74592226a/)
+[![LeetCode](https://img.shields.io/badge/LeetCode-Profile-yellow)](https://leetcode.com/u/rithik100/)
 
 > A modern, responsive portfolio website showcasing my journey as an Electrical & Computer Engineering student specializing in Full-Stack Development, AR/IoT systems, and innovative technology solutions.
 
@@ -109,7 +109,7 @@ GitHub - Adobe Creative Suite - Canva - Unity - Arduino - Eagle CAD - VS Code - 
 
 ### Quick Start
 1. **Clone the repository**
-git clone https://github.com/rithikverma/portfolio.git
+git clone (https://ritvik78.github.io/Updated-Portfolio/)
 cd portfolio
 
 2. **Open locally**
@@ -202,10 +202,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Feel free to reach out for collaborations, opportunities, or just to connect!
 
 - **📧 Email:** [er.rock4rithik@gmail.com](mailto:er.rock4rithik@gmail.com)
-- **💼 LinkedIn:** [linkedin.com/in/rithikverma](https://linkedin.com/in/rithikverma)
-- **🐙 GitHub:** [github.com/rithikverma](https://github.com/rithikverma)
-- **💻 LeetCode:** [leetcode.com/rithikverma](https://leetcode.com/rithikverma)
-- **🌐 Portfolio:** [Live Demo](https://rithikverma.github.io/portfolio)
+- **💼 LinkedIn:** [linkedin.com/in/rithikverma](https://www.linkedin.com/in/rithik-verma-74592226a/)
+- **🐙 GitHub:** [github.com/rithikverma](https://github.com/ritvik78)
+- **💻 LeetCode:** [leetcode.com/rithikverma](https://leetcode.com/u/rithik100/)
+- **🌐 Portfolio:** [Live Demo](https://ritvik78.github.io/Updated-Portfolio/)
 
 ## 🙏 Acknowledgments
 
