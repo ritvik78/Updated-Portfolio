@@ -115,7 +115,7 @@ cd portfolio
 2. **Open locally**
 Open index.html in your browser or use a local server
 python -m http.server 8000 # Python
-OR
+or
 npx serve . # Node.js
 
 
