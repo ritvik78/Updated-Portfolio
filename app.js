@@ -286,7 +286,8 @@ const utils = {
 const loadingScreen = {
   init() {
     this.loadingElement = document.getElementById('loading-screen');
-    this.progressBar = document.querySelector('.loading-progress');
+    this.progressBar = document.querySelector('.progress-bar');
+    this.progressText = document.querySelector('.progress-text');
     this.startLoading();
   },
 
@@ -304,8 +305,12 @@ const loadingScreen = {
   },
 
   updateProgress(progress) {
+    const roundedProgress = Math.min(progress, 100);
     if (this.progressBar) {
-      this.progressBar.style.width = `${Math.min(progress, 100)}%`;
+      this.progressBar.style.width = `${roundedProgress}%`;
+    }
+    if (this.progressText) {
+      this.progressText.textContent = `${Math.round(roundedProgress)}%`;
     }
   },
 
