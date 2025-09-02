@@ -9,7 +9,7 @@
 
 ## 🎯 About Me
 
-I'm **Rithik Verma**, currently pursuing B.E in Electrical and Computer Engineering at **Thapar Institute of Engineering and Technology** (2023-Present). With a strong foundation in electrical engineering from my diploma (CGPA: 7.75/10.0), I've evolved into a versatile developer passionate about creating innovative solutions that bridge the physical and digital worlds.
+I'm **Rithik Verma**, currently pursuing B.E in Electrical and Computer Engineering at **Thapar Institute of Engineering and Technology** (2023-Present). With a strong foundation in electrical engineering from my diploma, I've evolved into a versatile developer passionate about creating innovative solutions that bridge the physical and digital worlds.
 
 **📧 Contact:** er.rock4rithik@gmail.com  
 **🏫 Education:** Thapar Institute of Engineering and Technology  
