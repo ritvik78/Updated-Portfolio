@@ -109,13 +109,12 @@ GitHub - Adobe Creative Suite - Canva - Unity - Arduino - Eagle CAD - VS Code - 
 
 ### Quick Start
 1. **Clone the repository**
-git clone (https://ritvik78.github.io/Updated-Portfolio/)
+git clone https://ritvik78.github.io/Updated-Portfolio/
 cd portfolio
 
 2. **Open locally**
 Open index.html in your browser or use a local server
 python -m http.server 8000 # Python
-
 OR
 npx serve . # Node.js
 
