@@ -609,7 +609,7 @@ const projects = {
     if (!this.moreButton) return;
     this.moreButton.addEventListener('click', (e) => {
       e.preventDefault();
-      this.isExpanded = true;
+      this.isExpanded = !this.isExpanded;
       this.renderProjects();
     });
   },
@@ -848,8 +848,9 @@ const projects = {
 
     // Show/hide the More button
     if (this.moreButton) {
-      const shouldShowMore = !this.isExpanded && filteredProjects.length > this.pageSize;
-      this.moreButton.style.display = shouldShowMore ? 'inline-flex' : 'none';
+      const shouldShowToggle = filteredProjects.length > this.pageSize;
+      this.moreButton.style.display = shouldShowToggle ? 'inline-flex' : 'none';
+      this.moreButton.textContent = this.isExpanded ? 'Show less' : 'Show more';
     }
 
     const projectsHTML = projectsToRender.map(project => {
