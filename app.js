@@ -609,8 +609,16 @@ const projects = {
     if (!this.moreButton) return;
     this.moreButton.addEventListener('click', (e) => {
       e.preventDefault();
+      const wasExpanded = this.isExpanded;
       this.isExpanded = !this.isExpanded;
       this.renderProjects();
+
+      // If user collapses the list, bring them back to the Projects section.
+      if (wasExpanded && !this.isExpanded) {
+        requestAnimationFrame(() => {
+          utils.scrollToElement('#projects');
+        });
+      }
     });
   },
 
