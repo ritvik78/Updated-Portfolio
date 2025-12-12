@@ -45,7 +45,7 @@ const portfolioData = {
       description: "Creating an augmented reality (AR) interface similar to Snapchat with real-time filters detecting gestures",
       longDescription: "Advanced AR application that implements real-time computer vision for gesture detection and filter application. Built using Unity engine with custom C# scripts for performance optimization and Python backend for machine learning components.",
       features: ["Real-time gesture detection", "AR filter application", "Cross-platform compatibility", "Performance optimization"],
-      githubUrl: "#",
+      githubUrl: "https://github.com/ritvik78/Snap-Camera-kit",
       liveUrl: "#",
       featured: true,
       icon: "🤳"
@@ -58,7 +58,7 @@ const portfolioData = {
       description: "Developed Unity game with C#, implementing mechanics, UI, and asset integration. Optimized performance through playtesting",
       longDescription: "Classic arcade-style game built in Unity featuring smooth gameplay mechanics, particle effects, and progressive difficulty. Includes comprehensive UI system and performance optimization.",
       features: ["Smooth gameplay mechanics", "Particle effects system", "Progressive difficulty", "Performance optimization"],
-      githubUrl: "#",
+      githubUrl: "https://github.com/ritvik78/2D-Astroid-Shooter",
       liveUrl: "#",
       featured: true,
       icon: "🚀"
@@ -71,7 +71,7 @@ const portfolioData = {
       description: "Built responsive food delivery system with real-time order tracking, secure payments, and optimized performance",
       longDescription: "Complete food delivery platform with user authentication, real-time order tracking, secure payment integration, and admin dashboard for restaurant management.",
       features: ["Real-time order tracking", "Secure payment integration", "Admin dashboard", "Responsive design"],
-      githubUrl: "#",
+      githubUrl: "https://github.com/ritvik78/Online-Food-Ordering-master",
       liveUrl: "#",
       featured: true,
       icon: "🍕"
@@ -84,7 +84,7 @@ const portfolioData = {
       description: "Developed responsive e-commerce platform with secure payments, product catalogs, user authentication",
       longDescription: "Full-featured e-commerce website with product catalog, shopping cart, user accounts, order management, and secure payment processing.",
       features: ["Product catalog management", "Shopping cart system", "User authentication", "Order management"],
-      githubUrl: "#",
+      githubUrl: "https://github.com/ritvik78/E-commerce-",
       liveUrl: "#",
       featured: false,
       icon: "🛒"
@@ -97,7 +97,7 @@ const portfolioData = {
       description: "WiFi NINA based automatic door locking system using RFID with Blynk.io software and MKR1010 microcontroller",
       longDescription: "IoT-enabled smart lock system with RFID authentication, remote monitoring via Blynk app, and WiFi connectivity for real-time access control.",
       features: ["RFID authentication", "WiFi connectivity", "Remote monitoring", "Real-time access control"],
-      githubUrl: "#",
+      githubUrl: "https://github.com/ritvik78/RFID-Smart-Door-Lock",
       liveUrl: "#",
       featured: true,
       icon: "🔐"
@@ -126,6 +126,18 @@ const portfolioData = {
         "Completed comprehensive full-stack development training",
         "Built multiple real-world projects",
         "Gained industry-ready experience in modern web technologies"
+      ]
+    },
+    {
+      title: "Sports Secretary",
+      company: "Anantam Hall (Hostel M)",
+      period: "Aug 2025 – Dec 2025",
+      type: "Leadership Role",
+      description: "Served as Sports Secretary for the hostel committee, organizing and managing sports events for residents.",
+      achievements: [
+        "Organized hostel sports events and tournaments",
+        "Managed event logistics, schedules, and on-ground coordination",
+        "Coordinated with participants and volunteers to ensure smooth execution"
       ]
     },
     {
@@ -193,7 +205,7 @@ const portfolioData = {
     }
   ],
   social: {
-    github: "https://github.com/rithikverma",
+    github: "https://github.com/ritvik78",
     linkedin: "https://linkedin.com/in/rithikverma", 
     leetcode: "https://leetcode.com/rithikverma",
     email: "er.rock4rithik@gmail.com"
@@ -272,11 +284,11 @@ const utils = {
   // Generate gradient for project cards
   getProjectGradient(category) {
     const gradients = {
-      ar: 'linear-gradient(135deg, #00D4FF, #0099FF)',
-      web: 'linear-gradient(135deg, #00FF88, #00D4AA)',
-      game: 'linear-gradient(135deg, #FF6B6B, #FF8E8E)',
-      iot: 'linear-gradient(135deg, #FFD93D, #FF8F00)',
-      default: 'linear-gradient(135deg, #00D4FF, #0099FF)'
+      ar: 'linear-gradient(135deg, var(--portfolio-accent), var(--portfolio-electric))',
+      web: 'linear-gradient(135deg, var(--portfolio-success), var(--portfolio-accent))',
+      game: 'linear-gradient(135deg, var(--color-red-400), var(--portfolio-electric))',
+      iot: 'linear-gradient(135deg, var(--color-sun-yellow), var(--color-orange-500))',
+      default: 'linear-gradient(135deg, var(--portfolio-accent), var(--portfolio-electric))'
     };
     return gradients[category] || gradients.default;
   }
@@ -288,6 +300,15 @@ const loadingScreen = {
     this.loadingElement = document.getElementById('loading-screen');
     this.progressBar = document.querySelector('.progress-bar');
     this.progressText = document.querySelector('.progress-text');
+
+    // If the loading screen was removed from HTML, skip the loader
+    // and initialize the rest of the app immediately.
+    if (!this.loadingElement) {
+      appState.isLoading = false;
+      this.onLoadingComplete();
+      return;
+    }
+
     this.startLoading();
   },
 
@@ -488,7 +509,7 @@ const hero = {
         position: absolute;
         width: ${Math.random() * 6 + 2}px;
         height: ${Math.random() * 6 + 2}px;
-        background: ${Math.random() > 0.5 ? '#00D4FF' : '#0099FF'};
+        background: ${Math.random() > 0.5 ? 'var(--portfolio-accent)' : 'var(--portfolio-electric)'};
         border-radius: 50%;
         left: ${Math.random() * 100}%;
         top: ${Math.random() * 100}%;
@@ -570,10 +591,226 @@ const projects = {
   init() {
     this.filterButtons = document.querySelectorAll('.filter-btn');
     this.projectsGrid = document.getElementById('projects-grid');
+    this.moreButton = document.getElementById('projects-more-btn');
+
+    this.pageSize = 4;
+    this.isExpanded = false;
     
-    // Render projects immediately
-    this.renderProjects();
+    // Render projects immediately (show 4 by default)
+    this.filterProjects(appState.currentFilter || 'all');
     this.bindFilterEvents();
+    this.bindMoreButton();
+
+    // Load and append additional projects from GitHub (non-blocking)
+    this.loadMoreProjectsFromGitHub();
+  },
+
+  bindMoreButton() {
+    if (!this.moreButton) return;
+    this.moreButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.isExpanded = true;
+      this.renderProjects();
+    });
+  },
+
+  getFilteredProjects() {
+    const filter = appState.currentFilter || 'all';
+    const visibleProjects = portfolioData.projects.filter((p) => !this.isExcludedProject(p));
+    return filter === 'all'
+      ? visibleProjects
+      : visibleProjects.filter((p) => p.category === filter);
+  },
+
+  getGitHubUsername() {
+    const profileUrl = portfolioData?.social?.github;
+    if (!profileUrl || typeof profileUrl !== 'string') return null;
+    const trimmed = profileUrl.replace(/\/+$/, '');
+    const parts = trimmed.split('/');
+    return parts[parts.length - 1] || null;
+  },
+
+  normalizeRepoKey(value) {
+    return String(value || '')
+      .toLowerCase()
+      .replace(/\s+/g, '')
+      .replace(/[-_]/g, '')
+      .replace(/[^a-z0-9]/g, '');
+  },
+
+  prettifyRepoName(repoName) {
+    return String(repoName || '')
+      .replace(/[-_]+/g, ' ')
+      .replace(/\b\w/g, (m) => m.toUpperCase())
+      .trim();
+  },
+
+  inferCategoryFromLanguage(language) {
+    const lang = (language || '').toLowerCase();
+    if (lang === 'c#' || lang === 'shaderlab') return 'game';
+    if (lang === 'c' || lang === 'c++' || lang === 'arduino') return 'iot';
+    if (lang === 'python') return 'ar';
+    if (['javascript', 'typescript', 'html', 'css', 'php'].includes(lang)) return 'web';
+    return 'web';
+  },
+
+  sanitizeDescription(text) {
+    const desc = String(text || '').replace(/\s+/g, ' ').trim();
+    return desc;
+  },
+
+  buildProjectDescriptionFromRepo(repo) {
+    const existing = this.sanitizeDescription(repo?.description);
+    if (existing && existing.length >= 20) return existing;
+
+    const name = String(repo?.name || '').trim();
+    const key = this.normalizeRepoKey(name);
+    const language = repo?.language ? String(repo.language) : 'GitHub';
+    const isFork = Boolean(repo?.fork);
+
+    // Simple keyword-based descriptions (best-effort, no extra API calls).
+    const keywordRules = [
+      { test: (k) => k.includes('pdf'), desc: 'PDF tool for viewing, converting, or managing documents.' },
+      { test: (k) => k.includes('portfolio') || k.includes('portgen'), desc: 'Portfolio/website project focused on generating or showcasing personal work.' },
+      { test: (k) => k.includes('uiux') || k.endsWith('ui') || k.includes('ui'), desc: 'UI/UX-focused project that explores layouts, components, and user flows.' },
+      { test: (k) => k.includes('ecommerce') || k.includes('shop') || k.includes('store'), desc: 'E-commerce style project with product browsing, cart, and checkout flows.' },
+      { test: (k) => k.includes('rfid') || k.includes('iot') || k.includes('arduino'), desc: 'IoT/hardware project focused on device control, sensors, or embedded workflows.' },
+      { test: (k) => k.includes('game') || k.includes('shooter') || k.includes('asteroid'), desc: 'Game project focused on gameplay mechanics, UI, and performance.' },
+      { test: (k) => k.includes('camera') || k.includes('snap') || k.includes('ar'), desc: 'AR/camera project focused on real-time effects, filters, or computer vision.' }
+    ];
+
+    const matched = keywordRules.find((r) => r.test(key));
+    const base = matched?.desc || `A ${language} project from my GitHub profile.`;
+
+    // User requested: do not label forked repos in the description.
+    void isFork;
+    return base;
+  },
+
+  isExcludedRepoName(repoName) {
+    const key = this.normalizeRepoKey(repoName);
+    if (!key) return false;
+    // User requested: remove projects of "watchdog" and "ritvik78" from portfolio.
+    // Exception: keep WatchDog-ui-ux.
+    if (key === this.normalizeRepoKey('watchdog-ui-ux')) return false;
+    // Remove PortGen UI repo (e.g. "PortGen.ui" / "PortGen-UI").
+    if (key === this.normalizeRepoKey('portgen.ui')) return true;
+    if (key.includes('watchdog')) return true;
+    if (key === 'ritvik78') return true;
+    return false;
+  },
+
+  getRepoNameFromGitHubUrl(url) {
+    try {
+      const u = new URL(String(url));
+      if (!u.hostname.includes('github.com')) return null;
+      const parts = u.pathname.split('/').filter(Boolean);
+      return parts.length >= 2 ? parts[1] : null;
+    } catch {
+      const str = String(url || '');
+      const parts = str.split('/').filter(Boolean);
+      return parts.length ? parts[parts.length - 1] : null;
+    }
+  },
+
+  isExcludedProject(project) {
+    if (!project) return false;
+    const repoFromUrl = this.getRepoNameFromGitHubUrl(project.githubUrl);
+    if (this.isExcludedRepoName(repoFromUrl)) return true;
+    if (this.isExcludedRepoName(project.title)) return true;
+    return false;
+  },
+
+  async loadMoreProjectsFromGitHub() {
+    const username = this.getGitHubUsername();
+    if (!username) return;
+
+    const GITHUB_REPOS_LIMIT = 6;
+    const existingRepoKeys = new Set(
+      portfolioData.projects
+        .map((p) => this.normalizeRepoKey(p.githubUrl))
+        .filter(Boolean)
+    );
+
+    try {
+      const response = await fetch(
+        `https://api.github.com/users/${encodeURIComponent(username)}/repos?per_page=100&sort=updated`,
+        { headers: { 'Accept': 'application/vnd.github+json' } }
+      );
+
+      if (!response.ok) {
+        console.warn('GitHub repos fetch failed:', response.status);
+        return;
+      }
+
+      const repos = await response.json();
+      if (!Array.isArray(repos) || repos.length === 0) return;
+
+      // Try to backfill GitHub URLs for the existing “manual” projects by matching repo names.
+      const reposByKey = new Map(
+        repos
+          .filter((r) => r && r.name && r.html_url)
+          .map((r) => [this.normalizeRepoKey(r.name), r])
+      );
+
+      let updatedExisting = false;
+      portfolioData.projects.forEach((project) => {
+        if (!project || (project.githubUrl && project.githubUrl !== '#')) return;
+        const repo = reposByKey.get(this.normalizeRepoKey(project.title));
+        if (repo?.html_url) {
+          project.githubUrl = repo.html_url;
+          updatedExisting = true;
+        }
+      });
+
+      // Add additional repos as extra project cards
+      const maxId = Math.max(0, ...portfolioData.projects.map((p) => Number(p.id) || 0));
+      const additions = [];
+
+      for (const repo of repos) {
+        if (!repo || !repo.html_url || !repo.name) continue;
+        // Include forked repos as requested; still skip archived/disabled.
+        if (repo.archived || repo.disabled) continue;
+        if (repo.name.toLowerCase().includes('portfolio')) continue;
+        if (this.isExcludedRepoName(repo.name)) continue;
+
+        const urlKey = this.normalizeRepoKey(repo.html_url);
+        if (existingRepoKeys.has(urlKey)) continue;
+
+        const derivedDescription = this.buildProjectDescriptionFromRepo(repo);
+
+        additions.push({
+          repo,
+          project: {
+            id: maxId + additions.length + 1,
+            title: this.prettifyRepoName(repo.name),
+            category: this.inferCategoryFromLanguage(repo.language),
+            technologies: repo.language ? [repo.language] : ['GitHub'],
+            description: derivedDescription,
+            longDescription: derivedDescription,
+            features: [],
+            githubUrl: repo.html_url,
+            liveUrl: repo.homepage || '#',
+            featured: false,
+            icon: repo.language ? '📌' : '📁'
+          }
+        });
+
+        if (additions.length >= GITHUB_REPOS_LIMIT) break;
+      }
+
+      if (!updatedExisting && additions.length === 0) return;
+
+      additions.forEach((a) => {
+        existingRepoKeys.add(this.normalizeRepoKey(a.repo.html_url));
+        portfolioData.projects.push(a.project);
+      });
+
+      // Re-render and keep current filter
+      this.renderProjects();
+    } catch (err) {
+      console.warn('GitHub repos fetch error:', err);
+    }
   },
 
   bindFilterEvents() {
@@ -598,11 +835,31 @@ const projects = {
       return;
     }
 
-    const projectsHTML = portfolioData.projects.map(project => `
+    const filteredProjects = this.getFilteredProjects();
+    const shouldPaginate = !this.isExpanded;
+    const projectsToRender = shouldPaginate
+      ? filteredProjects.slice(0, this.pageSize)
+      : filteredProjects;
+
+    // Update grid mode (single-row when collapsed)
+    this.projectsGrid.classList.toggle('is-collapsed', shouldPaginate);
+
+    // Show/hide the More button
+    if (this.moreButton) {
+      const shouldShowMore = !this.isExpanded && filteredProjects.length > this.pageSize;
+      this.moreButton.style.display = shouldShowMore ? 'inline-flex' : 'none';
+    }
+
+    const projectsHTML = projectsToRender.map(project => {
+      const githubLink = (project.githubUrl && project.githubUrl !== '#')
+        ? project.githubUrl
+        : (portfolioData?.social?.github || '#');
+
+      return `
       <div class="project-card" data-category="${project.category}">
-        <div class="project-image" style="background: ${utils.getProjectGradient(project.category)}">
+        <a class="project-image project-image-link" href="${githubLink}" target="_blank" rel="noopener noreferrer" style="background: ${utils.getProjectGradient(project.category)}" aria-label="Open ${project.title} on GitHub">
           <div class="project-icon" style="font-size: 3rem; color: rgba(255,255,255,0.8);">${project.icon}</div>
-        </div>
+        </a>
         <div class="project-content">
           <div class="project-header">
             <div>
@@ -615,23 +872,29 @@ const projects = {
             ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
           </div>
           <div class="project-links">
-            <a href="${project.githubUrl}" class="project-link" target="_blank">GitHub</a>
+            <a href="${githubLink}" class="project-link" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </div>
       </div>
-    `).join('');
+    `;
+    }).join('');
 
     this.projectsGrid.innerHTML = projectsHTML;
     
-    console.log(`Rendered ${portfolioData.projects.length} projects`);
+    console.log(`Rendered ${projectsToRender.length} projects`);
     
-    // Add scroll animation class with delay
-    setTimeout(() => {
-      this.projectsGrid.querySelectorAll('.project-card').forEach((card, index) => {
-        card.classList.add('animate-on-scroll');
-        card.style.transitionDelay = `${index * 100}ms`;
-      });
-    }, 100);
+    // Ensure dynamically-rendered cards become visible even though the
+    // IntersectionObserver only observes elements present at initial load.
+    const cards = Array.from(this.projectsGrid.querySelectorAll('.project-card'));
+    cards.forEach((card, index) => {
+      card.classList.add('animate-on-scroll');
+      card.style.transitionDelay = `${index * 100}ms`;
+    });
+
+    // Trigger the transition in the next frame
+    requestAnimationFrame(() => {
+      cards.forEach((card) => card.classList.add('animate'));
+    });
   },
 
   getCategoryName(category) {
@@ -645,29 +908,9 @@ const projects = {
   },
 
   filterProjects(filter) {
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    projectCards.forEach((card, index) => {
-      const category = card.dataset.category;
-      
-      if (filter === 'all' || category === filter) {
-        card.style.display = 'block';
-        card.classList.remove('hidden');
-        setTimeout(() => {
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        }, index * 50);
-      } else {
-        card.classList.add('hidden');
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-          if (card.classList.contains('hidden')) {
-            card.style.display = 'none';
-          }
-        }, 300);
-      }
-    });
+    appState.currentFilter = filter;
+    this.isExpanded = false;
+    this.renderProjects();
   }
 };
 
@@ -931,6 +1174,9 @@ const themeToggle = {
     const savedTheme = localStorage.getItem('rithik-portfolio-theme');
     if (savedTheme) {
       this.setTheme(savedTheme);
+    } else {
+      // Apply default theme
+      this.setTheme(appState.currentTheme);
     }
   }
 };

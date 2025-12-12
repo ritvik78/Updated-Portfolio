@@ -11,19 +11,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loading-screen">
-        <div class="loading-content">
-            <div class="loading-logo">
-                <div class="logo-3d">RV</div>
-                <div class="logo-glow"></div>
+    <!-- Theme Background Animations -->
+    <div class="theme-background" id="theme-background">
+        <!-- Dark Mode: Moon & Shooting Stars -->
+        <div class="dark-theme-bg">
+            <div class="moon"></div>
+            <div class="stars-container">
+                <div class="shooting-star"></div>
+                <div class="shooting-star"></div>
+                <div class="shooting-star"></div>
+                <div class="shooting-star"></div>
+                <div class="shooting-star"></div>
             </div>
-            <div class="loading-text">
-                <span class="glitch" data-text="Loading Portfolio">Loading Portfolio</span>
-            </div>
-            <div class="loading-progress">
-                <div class="progress-bar"></div>
-                <div class="progress-text">0%</div>
+        </div>
+        <!-- Light Mode: Sunrise & Birds -->
+        <div class="light-theme-bg">
+            <div class="sun"></div>
+            <div class="birds-container">
+                <div class="bird bird-1"></div>
+                <div class="bird bird-2"></div>
+                <div class="bird bird-3"></div>
+                <div class="bird bird-4"></div>
+                <div class="bird bird-5"></div>
             </div>
         </div>
     </div>
@@ -31,10 +40,6 @@
     <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">
-                <div class="logo-ring"></div>
-                <img src="assets/logo.png" alt="Rithik Verma" class="logo-image">
-            </a>
             <div class="nav-menu" id="nav-menu">
                 <a href="#home" class="nav-link active">Home</a>
                 <a href="#about" class="nav-link">About</a>
@@ -46,7 +51,7 @@
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
             <div class="nav-actions">
-                <a href="https://drive.google.com/file/d/1Qdv5OM9565vf_ePO6blATI9gbWCLy4Zv/view?usp=sharing" class="btn btn--outline btn--sm" target="_blank">Download Resume</a>
+                <a href="https://drive.google.com/file/d/1qf58A0iyfVXj5VB1O6hj7ZhCDx-D0t2z/view?usp=drive_link" class="btn btn--outline btn--sm" target="_blank">Download Resume</a>
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                     <span class="theme-icon">🌙</span>
                 </button>
@@ -90,6 +95,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
             <div class="scroll-indicator">
                 <div class="scroll-arrow"></div>
                 <span>Scroll to explore</span>
@@ -268,6 +274,9 @@
             <div class="projects-grid" id="projects-grid">
                 <!-- Projects will be populated by JavaScript -->
             </div>
+            <div class="projects-more" id="projects-more">
+                <button class="btn btn--outline" id="projects-more-btn" type="button">Show more</button>
+            </div>
         </div>
     </section>
 
@@ -312,6 +321,24 @@
                             <li>Completed comprehensive full-stack development training</li>
                             <li>Built multiple real-world projects</li>
                             <li>Gained industry-ready experience in modern web technologies</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item" data-year="2025">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-title">Sports Secretary</h3>
+                            <div class="timeline-meta">
+                                <span class="timeline-company">Anantam Hall (Hostel M)</span>
+                                <span class="timeline-period">Aug 2025 – Dec 2025</span>
+                            </div>
+                        </div>
+                        <p class="timeline-description">Organized and managed hostel sports events as Sports Secretary for the hostel committee.</p>
+                        <ul class="timeline-achievements">
+                            <li>Organized hostel sports events and tournaments</li>
+                            <li>Managed event logistics, schedules, and on-ground coordination</li>
+                            <li>Coordinated with participants and volunteers for smooth execution</li>
                         </ul>
                     </div>
                 </div>
@@ -404,7 +431,7 @@
                         <div class="contact-icon">📧</div>
                         <div class="contact-details">
                             <h3>Email</h3>
-                            <a href="mailto:er.rock4rithik@gmail.com">er.rock4rithik@gmail.com</a>
+                            <a href="mailto:rock4rithik@gmail.com">rock4rithik@gmail.com</a>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -468,7 +495,7 @@
             <div class="footer-content">
                 <div class="footer-text">
                     <p>&copy; 2025 Rithik Verma. All rights reserved.</p>
-                    <p>Built with passion and modern web technologies.</p>
+                    <p>Built with passion.</p>
                 </div>
                 <div class="scroll-to-top" id="scroll-to-top">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
