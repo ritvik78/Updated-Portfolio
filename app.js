@@ -725,7 +725,9 @@ const projects = {
     const username = this.getGitHubUsername();
     if (!username) return;
 
-    const GITHUB_REPOS_LIMIT = 6;
+    // Import more repos so the deployed site can show (almost) all projects.
+    // Keep this bounded to avoid rendering an excessive number of cards.
+    const GITHUB_REPOS_LIMIT = 50;
     const existingRepoKeys = new Set(
       portfolioData.projects
         .map((p) => this.normalizeRepoKey(p.githubUrl))
