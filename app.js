@@ -701,8 +701,8 @@ const projects = {
     // User requested: remove projects of "watchdog" and "ritvik78" from portfolio.
     // Exception: keep WatchDog-ui-ux.
     if (key === this.normalizeRepoKey('watchdog-ui-ux')) return false;
-    // Remove PortGen UI repo (e.g. "PortGen.ui" / "PortGen-UI").
-    if (key === this.normalizeRepoKey('portgen.ui')) return true;
+    // User requested: remove PortGenn from portfolio (but keep PortGen).
+    if (key === this.normalizeRepoKey('portgenn')) return true;
     if (key.includes('watchdog')) return true;
     if (key === 'ritvik78') return true;
     return false;
@@ -846,17 +846,40 @@ const projects = {
     }
 
     const filteredProjects = this.getFilteredProjects();
+
+    // Requested order for the first four items (when available).
+    const prioritizedRepoOrder = [
+      'watchdog-ui-ux',
+      'portgen',
+      'pdf-nexus',
+      '2d-astroid-shooter'
+    ].map((v) => this.normalizeRepoKey(v));
+
+    const getProjectPriorityIndex = (project) => {
+      const repoFromUrl = this.getRepoNameFromGitHubUrl(project?.githubUrl);
+      const repoKey = this.normalizeRepoKey(repoFromUrl);
+      const titleKey = this.normalizeRepoKey(project?.title);
+      const idxRepo = repoKey ? prioritizedRepoOrder.indexOf(repoKey) : -1;
+      const idxTitle = titleKey ? prioritizedRepoOrder.indexOf(titleKey) : -1;
+      const idx = Math.min(idxRepo === -1 ? Infinity : idxRepo, idxTitle === -1 ? Infinity : idxTitle);
+      return Number.isFinite(idx) ? idx : 999;
+    };
+
+    const sortedProjects = filteredProjects
+      .map((p, i) => ({ p, i, pri: getProjectPriorityIndex(p) }))
+      .sort((a, b) => (a.pri - b.pri) || (a.i - b.i))
+      .map((x) => x.p);
     const shouldPaginate = !this.isExpanded;
     const projectsToRender = shouldPaginate
-      ? filteredProjects.slice(0, this.pageSize)
-      : filteredProjects;
+      ? sortedProjects.slice(0, this.pageSize)
+      : sortedProjects;
 
     // Update grid mode (single-row when collapsed)
     this.projectsGrid.classList.toggle('is-collapsed', shouldPaginate);
 
     // Show/hide the More button
     if (this.moreButton) {
-      const shouldShowToggle = filteredProjects.length > this.pageSize;
+      const shouldShowToggle = sortedProjects.length > this.pageSize;
       this.moreButton.style.display = shouldShowToggle ? 'inline-flex' : 'none';
       this.moreButton.textContent = this.isExpanded ? 'Show less' : 'Show more';
     }
